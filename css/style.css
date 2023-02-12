@@ -106,23 +106,23 @@ padding-left: 5px;
 .header__nav {
 	font-weight: 500;
 }
-.menu {}
+.menu li{
+	position: relative;
+}
 .menu__list {
 	display: flex;
 	justify-content: space-between;
 }
-.menu__item {
-	color: white;
-	display: flex;
-	position: relative;
-}
 .menu__link {
+	color: white;
 	text-transform: uppercase;
 }
-.menu__item .menu__link:hover{
+.menu__link:hover{
 	color: #fdbd67;
 }
-.menu__sub-menu {
+.menu__list>li:hover .sub-menu__list{
+	display: block;
+	color: #fdbd67;
 }
 .sub-menu {
 	background-color: #ebecf0;
@@ -140,19 +140,26 @@ padding-left: 5px;
 	color: #424551 ;
 	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.338);
 }
-.menu__item:hover .sub-menu {
+.sub-menu li:not(:last-child){
+	margin-bottom: 10px;
+}
+.menu__list>li:hover .sub-menu {
 	visibility: visible;
 	opacity: 1;
 }
-.sub-menu__item:not(:last-child) {
+.sub-menu__link:not(:last-child) {
 margin-bottom: 15px;
 }
- .sub-menu__item:hover {
+ .sub-menu__link:hover {
 	color:  #b98643
 }
+/* ================================================ */
+
+/* =================================================== */
 @media (max-width:1199.98px){}
 @media (max-width:990.98px){
 	.header__nav {
+		overflow: auto;
 		font-weight: 400;
 		font-size: 14px;
 		}
@@ -164,7 +171,7 @@ margin-bottom: 15px;
 		}
 }
 /* =====================(бургер) меню================================ */
-@media (max-width:767.98px){
+@media (max-width:790.98px){
 	.header{
 		padding: 15px;
 	}
@@ -230,9 +237,11 @@ margin-bottom: 15px;
 	padding: 100px 0px;
 	font-size: 20px;
  }
- .sub-menu{
- }
 }
+ 
+
+/* ================================================================== */
+
 /* ======================block-head============================== */
 .block-head {
 	background-color:#ebedf5 ;
@@ -285,7 +294,9 @@ margin-bottom: 15px;
 	}
 }
 @media (max-width:767.98px){
-
+.block-head__video iframe{
+	max-width: 100%;
+}
 }
 /* =====================block-about=============================== */
 
@@ -507,7 +518,8 @@ margin-bottom: 15px;
 	font-weight: 500;
 	font-size: 20px;
 }
-.contact-item__text {
+.contact-item__text:hover {
+	color: #fdbd67;
 }
 @media (max-width:990.98px){
 	.block-news {
@@ -547,4 +559,21 @@ margin-bottom: 15px;
 .accreditation__link:hover{
 	color: #b98643;
 }
-/* ================================================================================= */
+/* ============================================================================= */
+.pagination{
+	display: flex;
+	gap: 10px;
+	justify-content: flex-end;
+	align-items: center;
+}
+.pagination a {
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+}
+.pagination a.active {
+	background-color: #55804a;
+	color: white;
+}
+.pagination a:hover:not(.active) {background-color: #fdbd67;}
